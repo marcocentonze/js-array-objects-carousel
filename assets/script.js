@@ -25,15 +25,15 @@ const slides = [
     {
         path: './assets/img/04.webp',
     },
-
+    
     {
         path: './assets/img/05.webp',
     }
-  ]
+]
   
-  let activeSlide = 0;
-  
-  // select the dom elements
+let activeSlide = 0;
+
+// select the dom elements
   const sliderImagesEl = document.querySelector('.slider .images')
   const prevEl = document.querySelector('.prev')
   const nextEl = document.querySelector('.next')
@@ -42,25 +42,26 @@ const slides = [
   //console.log(sliderImagesEl);
   
   /* Print all images into the dom */
-  // loop over the slides 
-  for (let i = 0; i < slides.length; i++) {
-    const slidePath = slides[i].path;
-    console.log(slidePath);
+  // loop over the slides (add for in)
+  slides.forEach((path, i) => {
+      
+      const slidePath = slides[i].path;
+      console.log(slidePath);
+      
+      // for each slide we create the markup
+      const slideMarkup = `<img class="${activeSlide === i ? 'active' : '' }" src="${slidePath}" alt="">`
+      //console.log(slideMarkup);
+      
+      sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
+      
+    })
     
-    // for each slide we create the markup
-    const slideMarkup = `<img class="${activeSlide === i ? 'active' : '' }" src="${slidePath}" alt="">`
-    //console.log(slideMarkup);
-  
-    sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
-  
-  }
-  
-  
-  
-  /* 
-  
-  MILESTONE 3
-  Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente.
+    
+    
+    /* 
+    
+    MILESTONE 3
+    Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente.
   
   */
   
