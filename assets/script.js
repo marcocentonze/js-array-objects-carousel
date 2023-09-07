@@ -88,7 +88,7 @@ const slides = [
   const thumbsElement = document.querySelector('.thumbnails')
   
   for (let i = 0; i < slides.length; i++) {
-    const thumbPath = slides[i];
+    const thumbPath = slides[i].path;
     const thumbMarkup = `<img class="thumb ${activeSlide === i ? 'active' : ''}" src="${thumbPath}" alt="">`
     //console.log(thumbMarkup);
   
